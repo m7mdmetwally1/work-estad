@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="addNumberForm" (ngSubmit)="onSubmit()">
+        <div class="col-8 flex_edit">
+          <button class="btn btn-success m-3 form-Group" type="submit">
+            أضف
+          </button>
+          <div class="col-4">
+            <input
+              type="number"
+              class="m-2"
+              placeholder="الرقم"
+              formControlName="number"
+              id="number"
+              [ngClass]="{ 'is-invalid': submitted && f['number'].errors }"
+            />
+            @if (submitted && f['number'].errors) {
+            <div class="invalid-feedback">
+              @if (f['number'].errors['required']) {
+              <div>number is required</div>
+              }
+            </div>
+            }
+          </div>
+          <div class="col-4">
+            <input
+              type="text"
+              placeholder="الأسم"
+              formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+            />
+            @if (submitted && f['name'].errors) {
+            <div class="invalid-feedback">
+              @if (f['name'].errors['required']) {
+              <div>name is required</div>
+              }
+            </div>
+            }
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        @for(obj of newManData;track obj;){
+        <div class="col-12 flex_edit">
+          <div class="col-3">{{ obj?.name }}</div>
+          <div class="col-3">{{ obj?.number }}</div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
