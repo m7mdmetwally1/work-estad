@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
+import { AngularFireModule } from 'angularfire2';
 import {
   AbstractControl,
   FormControl,
@@ -10,6 +12,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FirebaseServiceService } from '../../service/firebase-service.service';
 
 @Component({
   selector: 'app-numbers',
@@ -19,20 +22,33 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrl: './numbers.component.css',
 })
 export class NumbersComponent {
-  constructor(private formbuilder: FormBuilder) {}
+  userDoc: any;
+  constructor(
+    private formbuilder: FormBuilder,
+    private firebaseService: FirebaseServiceService
+  ) {}
   addNumberForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     number: new FormControl(''),
   });
   submitted = false;
 
-  newManData = [{ name: '', number: '' }, ,];
+  newManData: { username: string; number: string }[] = [];
 
   get f(): { [key: string]: AbstractControl } {
     return this.addNumberForm.controls;
   }
 
   ngOnInit() {
+    let data = this.firebaseService.readingData();
+    console.log(data);
+
+    data.forEach((subArray) => {
+      subArray.forEach((item: any) => {
+        this.newManData.push({ username: item.username, number: item.number });
+      });
+    });
+
     this.addNumberForm = this.formbuilder.group({
       name: ['', [Validators.required]],
       number: ['', [Validators.required]],
@@ -48,7 +64,8 @@ export class NumbersComponent {
     const number = this.addNumberForm.get('number')?.value;
     const name = this.addNumberForm.get('name')?.value;
 
-    this.newManData.push({ name, number });
+    // this.newManData.push({ name, number });
+    this.firebaseService.addUserProfile(name, number);
 
     // this.addNumberForm.reset();
   }
