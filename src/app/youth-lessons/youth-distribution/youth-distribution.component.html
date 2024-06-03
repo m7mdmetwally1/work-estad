@@ -1,0 +1,110 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="row text-center">
+        <h4>أسماء المنوط بيهم كل فرد</h4>
+      </div>
+
+      <div class="row text-center mt-4 edit_buttons_container">
+        <div class="col-12 display-flex">
+          @for(name of names;track $index){
+
+          <div class="col-2 m-2">
+            <button class="btn btn-success" (click)="clicked($index)">
+              {{ name }}
+            </button>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="row text-center mt-4 operations__content">
+        <p class="content-0 background disable">
+          ضياء -خالد -الشرقاوى -محمد نصار
+        </p>
+        <p class="content-1 background disable">
+          عبده عزت-مصطفى سالم-مالك-عبدالله رزق
+        </p>
+        <p class="content-2 background disable">اسامه -دكتور عاصى</p>
+        <p class="content-3 background disable">محمد نصار-وما استطاع</p>
+        <p class="content-4 background disable">
+          حمزة محروس -عبدالرحمن ياسر-حسام شارع النادى
+        </p>
+        <p class="content-5 background disable">
+          على رفاعى-مخلوف-عبدالرحمن رمضان-عبدالعليم
+        </p>
+        <p class="content-6 background disable">عمربدوى-الشناوى</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<section class="section" id="section--2">
+  <div class="operations">
+    <div class="operations__tab-container">
+      <button
+        class="btn operations__tab operations__tab--1 operations__tab--active"
+        data-tab="1"
+      >
+        <span>01</span>احمد وليد
+      </button>
+      <button class="btn operations__tab operations__tab--2" data-tab="2">
+        <span>02</span>عبدالرحمن السيد
+      </button>
+      <button class="btn operations__tab operations__tab--3" data-tab="3">
+        <span>03</span> دكتور خيرى
+      </button>
+    </div>
+    <div
+      class="operations__content operations__content--1 operations__content--active"
+    >
+      <div class="operations__icon operations__icon--1">
+        <svg>
+          <use xlink:href="img/icons.svg#icon-upload"></use>
+        </svg>
+      </div>
+      <h5 class="operations__header">
+        Tranfser money to anyone, instantly! No fees, no BS.
+      </h5>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+
+    <div class="operations__content operations__content--2">
+      <div class="operations__icon operations__icon--2">
+        <svg>
+          <use xlink:href="img/icons.svg#icon-home"></use>
+        </svg>
+      </div>
+      <h5 class="operations__header">
+        Buy a home or make your dreams come true, with instant loans.
+      </h5>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+    <div class="operations__content operations__content--3">
+      <div class="operations__icon operations__icon--3">
+        <svg>
+          <use xlink:href="img/icons.svg#icon-user-x"></use>
+        </svg>
+      </div>
+      <h5 class="operations__header">
+        No longer need your account? No problem! Close it instantly.
+      </h5>
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+    </div>
+  </div>
+</section> -->

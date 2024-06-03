@@ -34,10 +34,9 @@ export const routes: Routes = [
   },
   {
     path: 'youthLessonss',
-    component: YouthLessonsComponent,
-  },
-  {
-    path: '**',
-    redirectTo: '',
+    loadChildren: () =>
+      import('./youth-lessons/youth-module/youth-module.module').then(
+        (m) => m.YouthModuleModule
+      ),
   },
 ];
